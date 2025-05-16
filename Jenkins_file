@@ -1,49 +1,51 @@
 pipeline {
     agent any
+
     environment {
-        
         PRODUCTION_ENVIRONMENT = 'Samadhi_Prod'
     }
+
     stages {
         stage('Build') {
             steps {
-                echo "New Build done"
-               
+                echo "Stage 1: Build - Compiling and packaging the code."
             }
         }
 
-        stage('Test') {
+        stage('Unit and Integration Tests') {
             steps {
-                echo "Unit stage done"
-                
+                echo "Stage 2: Testing - Running unit and integration tests."
             }
         }
 
-        stage('Code Quality Check') {
+        stage('Code Analysis') {
             steps {
-                echo "Code Quality Stage done"
+                echo "Stage 3: Code Quality - Performing static code analysis."
             }
         }
 
-        stage('Deploy') {
+        stage('Security Scan') {
             steps {
-                echo "$PRODUCTION_ENVIRONMENT,Deploy stage done"
+                echo "Stage 4: Security Scan - Checking for known vulnerabilities."
             }
         }
 
-        stage('Approval') {
+        stage('Deploy to Staging') {
             steps {
-                echo "Approval stage done"
-              
+                echo "Stage 5: Deploy to Staging - Application deployed to a test server."
+            }
+        }
+
+        stage('Integration Tests on Staging') {
+            steps {
+                echo "Stage 6: Testing on Staging - Running integration tests in staging environment."
             }
         }
 
         stage('Deploy to Production') {
             steps {
-                echo "Deploying stage done"
+                echo "Stage 7: Deploy to Production - Deploying to environment: ${PRODUCTION_ENVIRONMENT}"
+            }
         }
     }
-
-
-}
 }
