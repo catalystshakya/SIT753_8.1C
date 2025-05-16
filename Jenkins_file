@@ -1,0 +1,49 @@
+pipeline {
+    agent any
+    environment {
+        
+        PRODUCTION_ENVIRONMENT = 'Samadhi_Prod'
+    }
+    stages {
+        stage('Build') {
+            steps {
+                echo "New Build done"
+               
+            }
+        }
+
+        stage('Test') {
+            steps {
+                echo "Unit stage done"
+                
+            }
+        }
+
+        stage('Code Quality Check') {
+            steps {
+                echo "Code Quality Stage done"
+            }
+        }
+
+        stage('Deploy') {
+            steps {
+                echo "$PRODUCTION_ENVIRONMENT,Deploy stage done"
+            }
+        }
+
+        stage('Approval') {
+            steps {
+                echo "Approval stage done"
+              
+            }
+        }
+
+        stage('Deploy to Production') {
+            steps {
+                echo "Deploying stage done"
+        }
+    }
+
+
+}
+}
