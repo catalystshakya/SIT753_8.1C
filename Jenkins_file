@@ -2,7 +2,7 @@ pipeline {
     agent any
 
     environment {
-        PRODUCTION_ENVIRONMENT = 'Samadhi_Prod'
+        PRODUCTION_ENVIRONMENT = 'Samadhi_Prod_8.1C_Task1'
     }
 
     stages {
